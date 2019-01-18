@@ -9,14 +9,13 @@ const should = chai.should;
 
 console.log(shoppingJS);
 
-describe('ShoppingListItem', function () {
-
-  it('should be a class', function () {
+describe('ShoppingListItem', function() {
+  it('should be a class', function() {
     expect(ShoppingListItem).to.be.a('function');
     expect(new ShoppingListItem()).to.be.instanceof(ShoppingListItem);
   });
 
-  it('should have property named \'name\'', function () {
+  it("should have property named 'name'", function() {
     const pizza = new ShoppingListItem('pizza', 'pepperoni');
 
     expect(new ShoppingListItem()).to.have.property('name');
@@ -24,7 +23,7 @@ describe('ShoppingListItem', function () {
     expect(pizza.name).to.deep.equal('pizza');
   });
 
-  it('should have property named \'description\'', function () {
+  it("should have property named 'description'", function() {
     const pizza = new ShoppingListItem('pizza', 'pepperoni');
 
     expect(new ShoppingListItem()).to.have.property('description');
@@ -32,7 +31,7 @@ describe('ShoppingListItem', function () {
     expect(pizza.description).to.deep.equal('pepperoni');
   });
 
-  it('should have property \'isDone\'', function () {
+  it("should have property 'isDone'", function() {
     const pizza = new ShoppingListItem('pizza', 'pepperoni', 'third');
 
     expect(pizza).to.have.property('isDone');
@@ -40,17 +39,21 @@ describe('ShoppingListItem', function () {
     expect(pizza.isDone).to.deep.equal(false);
   });
 
-  it('should have a constructor method that accepts 2 arguments, name and description', function () {
+  it('should have a constructor method that accepts 2 arguments, name and description', function() {
     const pizza = new ShoppingListItem('pizza', 'pepperoni', 'third');
 
-    expect(pizza.name).to.deep.equal(
-      'pizza'
-    );
-    expect(
-      pizza.description
-      ).to.deep.equal('pepperoni');
-    expect(
-      pizza.third
-    ).to.be.undefined;
+    expect(pizza.name).to.deep.equal('pizza');
+    expect(pizza.description).to.deep.equal('pepperoni');
+    expect(pizza.third).to.be.undefined;
+  });
+
+  it("should have a method name 'check'", function() {
+    const pizza = new ShoppingListItem('pizza', 'pepperoni');
+
+    expect(pizza.check).to.exist;
+    expect(pizza.check).to.be.a('function');
+
+    pizza.check();
+    expect(pizza.isDone).to.deep.equal(true);
   });
 });
