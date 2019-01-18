@@ -113,25 +113,26 @@ describe('ShoppingList', function() {
     );
   });
 
-  it("should have a method named 'removeItem' that accepts a single ShoppingListItem argument", function () {
+  it("should have a method named 'removeItem' that accepts a single ShoppingListItem argument", function() {
     const newList = new ShoppingList();
     const apple = new ShoppingListItem('apple', 'red fruit');
     const pizza = new ShoppingListItem('pizza', 'pepperoni');
 
     newList.addItem(apple);
-    newList.removeItems(apple);
+    newList.removeItem(apple);
     expect(newList.items).to.not.contain(apple);
 
     newList.items = [apple, pizza];
-    newList.removeItems();
+    console.log(newList.items);
+    newList.removeItem();
     expect(newList.items).to.not.contain(pizza);
 
     newList.items = [];
-    newList.removeItems();
+    newList.removeItem();
     expect(newList.items).to.deep.equal([]);
 
     expect(newList.removeItem.bind(newList, pizza)).to.throw(
-      `${pizza.name} is not in the list`
+      `could not remove item because it was not found in the list`
     );
   });
 });

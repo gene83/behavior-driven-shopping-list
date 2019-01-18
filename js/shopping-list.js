@@ -15,6 +15,23 @@ class ShoppingList {
       throw new Error('addItem only adds shopping list items');
     }
   }
+
+  removeItem(item) {
+    if (arguments.length === 0) {
+      this.items.pop();
+      return;
+    }
+
+    const index = this.items.indexOf(item);
+
+    if (index !== -1) {
+      this.items.splice(index, 1);
+    } else {
+      throw new Error(
+        'could not remove item because it was not found in the list'
+      );
+    }
+  }
 }
 
 module.exports = {
