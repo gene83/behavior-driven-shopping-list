@@ -9,8 +9,6 @@ const ShoppingList = shopping_list.ShoppingList;
 const expect = chai.expect;
 const should = chai.should;
 
-console.log(shoppingJS);
-
 describe('ShoppingListItem', function () {
   it('should be a class', function () {
     expect(ShoppingListItem).to.be.a('function');
