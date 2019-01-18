@@ -9,13 +9,13 @@ const ShoppingList = shopping_list.ShoppingList;
 const expect = chai.expect;
 const should = chai.should;
 
-describe('ShoppingListItem', function () {
-  it('should be a class', function () {
+describe('ShoppingListItem', function() {
+  it('should be a class', function() {
     expect(ShoppingListItem).to.be.a('function');
     expect(new ShoppingListItem()).to.be.instanceof(ShoppingListItem);
   });
 
-  it("should have property named 'name'", function () {
+  it("should have property named 'name'", function() {
     const pizza = new ShoppingListItem('pizza', 'pepperoni');
 
     expect(new ShoppingListItem()).to.have.property('name');
@@ -23,7 +23,7 @@ describe('ShoppingListItem', function () {
     expect(pizza.name).to.deep.equal('pizza');
   });
 
-  it("should have property named 'description'", function () {
+  it("should have property named 'description'", function() {
     const pizza = new ShoppingListItem('pizza', 'pepperoni');
 
     expect(new ShoppingListItem()).to.have.property('description');
@@ -31,7 +31,7 @@ describe('ShoppingListItem', function () {
     expect(pizza.description).to.deep.equal('pepperoni');
   });
 
-  it("should have property 'isDone'", function () {
+  it("should have property 'isDone'", function() {
     const pizza = new ShoppingListItem('pizza', 'pepperoni', 'third');
 
     expect(pizza).to.have.property('isDone');
@@ -39,7 +39,7 @@ describe('ShoppingListItem', function () {
     expect(pizza.isDone).to.deep.equal(false);
   });
 
-  it('should have a constructor method that accepts 2 arguments, name and description', function () {
+  it('should have a constructor method that accepts 2 arguments, name and description', function() {
     const pizza = new ShoppingListItem('pizza', 'pepperoni', 'third');
 
     expect(pizza.name).to.deep.equal('pizza');
@@ -47,7 +47,7 @@ describe('ShoppingListItem', function () {
     expect(pizza.third).to.be.undefined;
   });
 
-  it("should have a method named 'check'", function () {
+  it("should have a method named 'check'", function() {
     const pizza = new ShoppingListItem('pizza', 'pepperoni');
 
     expect(pizza.check).to.exist;
@@ -57,7 +57,7 @@ describe('ShoppingListItem', function () {
     expect(pizza.isDone).to.deep.equal(true);
   });
 
-  it("should have a method named 'uncheck'", function () {
+  it("should have a method named 'uncheck'", function() {
     const pizza = new ShoppingListItem('pizza', 'pepperoni');
 
     expect(pizza.uncheck).to.exist;
@@ -68,7 +68,7 @@ describe('ShoppingListItem', function () {
     expect(pizza.isDone).to.deep.equal(false);
   });
 
-  it("should have a method named 'render'", function () {
+  it("should have a method named 'render'", function() {
     const pizza = new ShoppingListItem('pizza', 'pepperoni');
 
     expect(pizza.render).to.exist;
@@ -79,26 +79,26 @@ describe('ShoppingListItem', function () {
   });
 });
 
-describe('ShoppingList', function () {
-  it('should be a class', function () {
+describe('ShoppingList', function() {
+  it('should be a class', function() {
     expect(ShoppingList).to.be.a('function');
     expect(new ShoppingList()).to.be.instanceof(ShoppingList);
   });
 
-  it('should have a property named \'items\'', function () {
+  it("should have a property named 'items'", function() {
     expect(new ShoppingList()).to.have.property('items');
     expect(new ShoppingList().items).to.be.an('array');
     expect(new ShoppingList().items).to.deep.equal([]);
   });
 
-  it('should have a constructor method that initializes \'items\' as an empty array', function() {
+  it("should have a constructor method that initializes 'items' as an empty array", function() {
     const newList = new ShoppingList('apple', 'banana');
 
     expect(new ShoppingList().items).to.deep.equal([]);
     expect(newList.items).to.deep.equal([]);
   });
 
-  it('should have a method named \'addItem\' that accepts a single ShoppingListItem argument', function () {
+  it("should have a method named 'addItem' that accepts a single ShoppingListItem argument", function() {
     const newList = new ShoppingList();
     const apple = new ShoppingListItem('apple', 'red fruit');
 
@@ -106,9 +106,10 @@ describe('ShoppingList', function () {
     expect(newList.addItem).to.be.a('function');
 
     newList.addItem(apple);
-    expect(newList.items).to.deep.equal(['apple']);
+    expect(newList.items).to.deep.equal([apple]);
 
-    newList.addItem('daslkjasd');
-    expect(newList.items).to.not.contain(['daslkjasd']);
+    expect(newList.addItem.bind(newList, 'daslkjasd')).to.throw(
+      'addItem only adds shopping list items'
+    );
   });
 });
