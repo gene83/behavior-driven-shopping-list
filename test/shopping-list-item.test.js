@@ -84,9 +84,31 @@ describe('ShoppingList', function () {
     expect(ShoppingList).to.be.a('function');
     expect(new ShoppingList()).to.be.instanceof(ShoppingList);
   });
-  
+
   it('should have a property named \'items\'', function () {
     expect(new ShoppingList()).to.have.property('items');
     expect(new ShoppingList().items).to.be.an('array');
+    expect(new ShoppingList().items).to.deep.equal([]);
+  });
+
+  it('should have a constructor method that initializes \'items\' as an empty array', function() {
+    const newList = new ShoppingList('apple', 'banana');
+
+    expect(new ShoppingList().items).to.deep.equal([]);
+    expect(newList.items).to.deep.equal([]);
+  });
+
+  it('should have a method named \'addItem\' that accepts a single ShoppingListItem argument', function () {
+    const newList = new ShoppingList();
+    const apple = new ShoppingListItem('apple', 'red fruit');
+
+    expect(newList.addItem).to.exist;
+    expect(newList.addItem).to.be.a('function');
+
+    newList.addItem(apple);
+    expect(newList.items).to.deep.equal(['apple']);
+
+    newList.addItem('daslkjasd');
+    expect(newList.items).to.not.contain(['daslkjasd']);
   });
 });
