@@ -84,4 +84,9 @@ describe('ShoppingList', function () {
     expect(ShoppingList).to.be.a('function');
     expect(new ShoppingList()).to.be.instanceof(ShoppingList);
   });
+  
+  it('should have a property named \'items\'', function () {
+    expect(new ShoppingList()).to.have.property('items');
+    expect(new ShoppingList().items).to.be.an('array');
+  });
 });
