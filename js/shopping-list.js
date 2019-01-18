@@ -1,7 +1,9 @@
 'use strict';
 
 class ShoppingList {
-  constructor() {}
+  constructor() {
+    this.items = [];
+  }
 }
 
 module.exports = {
