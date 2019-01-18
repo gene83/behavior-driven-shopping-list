@@ -47,7 +47,7 @@ describe('ShoppingListItem', function() {
     expect(pizza.third).to.be.undefined;
   });
 
-  it("should have a method name 'check'", function() {
+  it("should have a method named 'check'", function() {
     const pizza = new ShoppingListItem('pizza', 'pepperoni');
 
     expect(pizza.check).to.exist;
@@ -55,5 +55,16 @@ describe('ShoppingListItem', function() {
 
     pizza.check();
     expect(pizza.isDone).to.deep.equal(true);
+  });
+
+  it("should have a method named 'uncheck'", function() {
+    const pizza = new ShoppingListItem('pizza', 'pepperoni');
+
+    expect(pizza.uncheck).to.exist;
+    expect(pizza.uncheck).to.be.a('function');
+
+    pizza.check();
+    pizza.uncheck();
+    expect(pizza.isDone).to.deep.equal(false);
   });
 });
