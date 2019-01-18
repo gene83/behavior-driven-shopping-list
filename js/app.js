@@ -16,14 +16,11 @@ function addToShoppingList() {
   const newItem = new ShoppingListItem(title, description);
 
   list.addItem(newItem);
-}
-
-function addToShoppingList() {
-  
+  content.innerHTML = list.render();
 }
 
 addItemButton.addEventListener('click', addToShoppingList);
 
-const listElement = ShoppingList.render();
+const listElement = list.render();
 
 content.innerHTML = listElement;
