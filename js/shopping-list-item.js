@@ -16,22 +16,12 @@ class ShoppingListItem {
   }
 
   render() {
-    // const listElement = document.createElement('li');
-    // const nameSpan = document.createElement('span');
-    // const descriptionSpan = document.createElement('span');
-    
-    // listElement.className = `completed_${isDone}`;
-
-    // nameSpan.innerHTML = this.name;
-    // descriptionSpan.innerHTML = this.description;
-    // listElement.appendChild(nameSpan, descriptionSpan);
-
-    // return listElement;
-
-    return `<li class="completed_${this.isDone}"><span>${this.name}</span> <span>${this.description}</span></li>`;
+    return `<li class="completed_${this.isDone}"><span>${
+      this.name
+    }</span> <span>${this.description}</span></li>`;
   }
 }
 
 module.exports = {
-  ShoppingListItem : ShoppingListItem
-}
+  ShoppingListItem: ShoppingListItem
+};

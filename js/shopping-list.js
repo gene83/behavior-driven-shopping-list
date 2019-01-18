@@ -32,6 +32,15 @@ class ShoppingList {
       );
     }
   }
+
+  render() {
+    const htmlArray = [];
+    this.items.forEach(item => {
+      htmlArray.push(item.render());
+    });
+
+    return `<ul>${htmlArray.join('')}</ul>`;
+  }
 }
 
 module.exports = {
