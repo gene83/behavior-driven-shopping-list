@@ -112,4 +112,26 @@ describe('ShoppingList', function() {
       'addItem only adds shopping list items'
     );
   });
+
+  it("should have a method named 'removeItem' that accepts a single ShoppingListItem argument", function () {
+    const newList = new ShoppingList();
+    const apple = new ShoppingListItem('apple', 'red fruit');
+    const pizza = new ShoppingListItem('pizza', 'pepperoni');
+
+    newList.addItem(apple);
+    newList.removeItems(apple);
+    expect(newList.items).to.not.contain(apple);
+
+    newList.items = [apple, pizza];
+    newList.removeItems();
+    expect(newList.items).to.not.contain(pizza);
+
+    newList.items = [];
+    newList.removeItems();
+    expect(newList.items).to.deep.equal([]);
+
+    expect(newList.removeItem.bind(newList, pizza)).to.throw(
+      `${pizza.name} is not in the list`
+    );
+  });
 });
