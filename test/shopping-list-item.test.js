@@ -67,4 +67,14 @@ describe('ShoppingListItem', function() {
     pizza.uncheck();
     expect(pizza.isDone).to.deep.equal(false);
   });
+
+  it("should have a method named 'render'", function() {
+    const pizza = new ShoppingListItem('pizza', 'pepperoni');
+
+    expect(pizza.render).to.exist;
+    expect(pizza.render).to.be.a('function');
+    expect(pizza.render()).to.deep.equal(
+      '<li class="completed_false"><span>pizza</span> <span>pepperoni</span></li>'
+    );
+  });
 });
