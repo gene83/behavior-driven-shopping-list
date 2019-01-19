@@ -1,8 +1,6 @@
 'use strict';
 
-const shopping_list_item = require('./shopping-list-item');
-const ShoppingListItem = shopping_list_item.ShoppingListItem;
-
+// const shoppingListModule = (function() {
 class ShoppingList {
   constructor() {
     this.items = [];
@@ -10,6 +8,7 @@ class ShoppingList {
 
   addItem(item) {
     if (item instanceof ShoppingListItem) {
+      item.index = this.items.length;
       this.items.push(item);
     } else {
       throw new Error('addItem only adds shopping list items');
@@ -35,14 +34,12 @@ class ShoppingList {
 
   render() {
     const htmlArray = [];
+    let i = 0;
     this.items.forEach(item => {
-      htmlArray.push(item.render());
+      htmlArray.push(item.render(i));
+      i++;
     });
 
     return `<ul>${htmlArray.join('')}</ul>`;
   }
 }
-
-module.exports = {
-  ShoppingList
-};

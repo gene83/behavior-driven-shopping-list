@@ -1,10 +1,5 @@
 'use strict';
 
-const shopping_list = require('../js/shopping-list.js');
-const shopping_list_item = require('../js/shopping-list-item.js');
-const ShoppingList = shopping_list.ShoppingList;
-const ShoppingListItem = shopping_list_item.ShoppingListItem;
-
 const content = document.querySelector('#content');
 const addItemButton = document.querySelector('#addShoppingListItemButton');
 
@@ -21,6 +16,14 @@ function addToShoppingList() {
 
 addItemButton.addEventListener('click', addToShoppingList);
 
-const listElement = list.render();
+function changeCheckedStatus(idx, checkbox) {
+  console.log(checkbox.checked);
+  if (checkbox.checked) {
+    list.items[idx].check();
+  } else {
+    list.items[idx].uncheck();
+  }
 
-content.innerHTML = listElement;
+  content.innerHTML = list.render();
+}
+content.innerHTML = list.render();
