@@ -2,7 +2,6 @@
 
 const content = document.querySelector('#content');
 const addItemButton = document.querySelector('#addShoppingListItemButton');
-
 const list = new ShoppingList();
 
 function addToShoppingList() {
@@ -14,10 +13,7 @@ function addToShoppingList() {
   content.innerHTML = list.render();
 }
 
-addItemButton.addEventListener('click', addToShoppingList);
-
 function changeCheckedStatus(idx, checkbox) {
-  console.log(checkbox.checked);
   if (checkbox.checked) {
     list.items[idx].check();
   } else {
@@ -26,4 +22,13 @@ function changeCheckedStatus(idx, checkbox) {
 
   content.innerHTML = list.render();
 }
+
+function removeItemButtonClicked(idx) {
+  const item = list.items[idx];
+  list.removeItem(item);
+
+  content.innerHTML = list.render();
+}
+
+addItemButton.addEventListener('click', addToShoppingList);
 content.innerHTML = list.render();

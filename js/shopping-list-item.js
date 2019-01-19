@@ -22,10 +22,11 @@ class ShoppingListItem {
       isChecked = 'checked';
     }
 
-    return `<li class="completed_${
-      this.isDone
-    }"><input type="checkbox" onchange="changeCheckedStatus(${idx}, this)" ${isChecked}/><span>${
-      this.name
-    }</span> <span>${this.description}</span></li>`;
+    return `<li class="completed_${this.isDone}">
+    <input type="checkbox" onchange="changeCheckedStatus(${idx}, this)" ${isChecked}/>
+    <span>${this.name}</span>
+    <span>${this.description}</span>
+    <button onclick="removeItemButtonClicked(${idx})">x</button>
+    </li>`;
   }
 }
