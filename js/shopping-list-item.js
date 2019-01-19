@@ -17,15 +17,21 @@ class ShoppingListItem {
 
   render(idx) {
     let isChecked = '';
+    let strikeStart = '';
+    let strikeEnd = '';
 
     if (this.isDone) {
       isChecked = 'checked';
+      strikeStart = '<strike>';
+      strikeEnd = '</strike>';
     }
 
     return `<li class="completed_${this.isDone}">
     <input type="checkbox" onchange="changeCheckedStatus(${idx}, this)" ${isChecked}/>
+    ${strikeStart}
     <span>${this.name}</span>
     <span>${this.description}</span>
+    ${strikeEnd}
     <button onclick="removeItemButtonClicked(${idx})">x</button>
     </li>`;
   }

@@ -1,6 +1,5 @@
 'use strict';
 
-// const shoppingListModule = (function() {
 class ShoppingList {
   constructor() {
     this.items = [];
