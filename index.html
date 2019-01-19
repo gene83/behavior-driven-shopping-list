@@ -8,14 +8,20 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <form action="" id="addItemForm">
-      Title:<input type="text" id="title" /> Description:<input
-        type="text"
-        type="description"
-        id="description"
-      />
-    </form>
-    <button id="addShoppingListItemButton">Add to Shopping List</button>
+    <header class="header"><h1 class="heading">Shopping List</h1></header>
+    <div class="form-wrapper">
+      <form id="addItemForm">
+        Title:<input type="text" id="title" /> Description:<input
+          type="text"
+          type="description"
+          id="description"
+        />
+      </form>
+      <button id="addShoppingListItemButton" type="submit">
+        Add to Shopping List
+      </button>
+    </div>
+
     <div id="content"></div>
     <script src="/js/shopping-list-item.js"></script>
     <script src="/js/shopping-list.js"></script>

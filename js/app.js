@@ -10,6 +10,7 @@ function addToShoppingList() {
   const newItem = new ShoppingListItem(title, description);
 
   list.addItem(newItem);
+
   content.innerHTML = list.render();
 }
 
