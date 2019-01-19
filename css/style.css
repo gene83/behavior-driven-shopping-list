@@ -1,0 +1,34 @@
+body {
+  width: 100%; }
+  body .header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-image: url("https://thumbor.thedailymeal.com/nTxYaGuw9KEHYh4bsdDR-N2oWDI=/840x565/filters:focal(895x584:896x585)/https://www.thedailymeal.com/sites/default/files/2017/09/14/Hero_Clean%2015_edit.jpg");
+    background-size: cover; }
+    body .header .heading {
+      font-size: 60px;
+      color: white;
+      text-shadow: 2px 2px 0 #000, 2px 2px 0 #000, 2px 2px 0 #000, 2px 2px 0 #000; }
+  body .form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: green; }
+    body .form-wrapper #addItemForm {
+      font-size: 23px; }
+      body .form-wrapper #addItemForm #title {
+        font-size: 20px;
+        border: 1px solid black;
+        margin-left: 5px; }
+      body .form-wrapper #addItemForm #description {
+        font-size: 20px;
+        border: 1px solid black;
+        margin-left: 5px; }
+    body .form-wrapper #addShoppingListItemButton {
+      margin-left: 5px; }
+  body #content {
+    font-size: 20px; }
+    body #content li {
+      margin: 5px; }
